@@ -18,6 +18,7 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
 import java.util.Optional;
+import java.util.logging.Logger;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
@@ -25,6 +26,8 @@ public class HelloWorldIntentHandler implements RequestHandler {
 
     @Override
     public boolean canHandle(HandlerInput input) {
+    	Logger log = Logger.getLogger("CSS");
+    	log.info("canHandle");
         return input.matches(intentName("HelloWorldIntent"));
     }
 
