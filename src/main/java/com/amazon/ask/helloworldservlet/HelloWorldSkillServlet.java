@@ -13,15 +13,16 @@
 
 package com.amazon.ask.helloworldservlet;
 
+import java.util.logging.Logger;
+
 import com.amazon.ask.Skill;
 import com.amazon.ask.Skills;
-import com.amazon.ask.servlet.SkillServlet;
-
 import com.amazon.ask.helloworldservlet.handlers.CancelandStopIntentHandler;
 import com.amazon.ask.helloworldservlet.handlers.HelloWorldIntentHandler;
 import com.amazon.ask.helloworldservlet.handlers.HelpIntentHandler;
-import com.amazon.ask.helloworldservlet.handlers.SessionEndedRequestHandler;
 import com.amazon.ask.helloworldservlet.handlers.LaunchRequestHandler;
+import com.amazon.ask.helloworldservlet.handlers.SessionEndedRequestHandler;
+import com.amazon.ask.servlet.SkillServlet;
 
 public class HelloWorldSkillServlet extends SkillServlet {
 
@@ -30,6 +31,8 @@ public class HelloWorldSkillServlet extends SkillServlet {
     }
 
     private static Skill getSkill() {
+    	Logger log = Logger.getLogger("CSS");
+    	log.info("getSkill");
         return Skills.standard()
                 .addRequestHandlers(
                         new CancelandStopIntentHandler(),
